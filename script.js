@@ -1,4 +1,4 @@
-const myLibrary = [];
+const readingList = [];
 
 // Constructor for a new book
 function Book(title, author, pages, read){
@@ -13,13 +13,13 @@ function Book(title, author, pages, read){
     };
 }
 
-function addBookToLibrary(title, author, pages, read){
+function addBookToList(title, author, pages, read){
     let bookToAdd = new Book (title, author, pages, read);
-    myLibrary.push(bookToAdd);
+    readingList.push(bookToAdd);
 }
 
 function displayBooks(){
-    myLibrary.forEach(book => {
+    readingList.forEach(book => {
         console.log(book.info());
     });
 }
