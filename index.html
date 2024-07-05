@@ -1,23 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reading List</title>
     <link rel="stylesheet" href="./styles.css">
 </head>
+
 <body>
     <header>
         <h1>Reading List</h1>
-        <button id="add-book" onclick="displayAddBookModal()">+ Add new book</button>
-    </header> 
-    
+        <button id="addBook" onclick="displayAddBookModal()">+ Add new book</button>
+    </header>
+
     <dialog id="addBookDialog">
         <a id="closeAddModal">X</a>
-        <form>
-            
+        <form id="addBookForm">
+
+            <section>
+                <label for="titleInput">Title:</label>
+                <br>
+                <input type="text" name="title" id="titleInput">
+            </section>
+
+            <section>
+                <label for="authorInput">Author:</label>
+                <br>
+                <input type="text" name="author" id="authorInput">
+            </section>
+
+            <section>
+                <label for="lengthInput">Length:</label>
+                <br>
+                <input type="text" name="title" id="lengthInput">
+            </section>
+
+            <section>
+                <label for="radioCheckbox">Read?:</label>
+                <label>
+                    <input id="yesRadio" type="radio" name="readChoice" value="yes"> Yes
+                </label>
+                <label>
+                    <input id="noRadio" type="radio" name="readChoice" value="no"> No
+                </label>
+            </section>
+
+            <button id="submitBook">Add Book</button>
         </form>
     </dialog>
+
 </body>
 <script src="./script.js"></script>
+
 </html>

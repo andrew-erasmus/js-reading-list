@@ -29,7 +29,7 @@ h1{
     margin-left: 2rem;
 }
 
-#add-book{
+#addBook{
     background: #f8fafc;
     border: solid #f8fafc 1px;
     border-radius: 10px;
@@ -52,5 +52,30 @@ dialog{
 a{ 
     text-decoration: none;
     cursor: pointer;   
-    
+}
+
+#addBookForm{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 2rem;
+}
+
+input[type="radio"]{
+    background-color: #0f172a;
+    border: #0f172a;
+    accent-color: #0f0f0f;
+}
+
+#submitBook{
+    background: #0f172a;
+    border: solid #0f172a 1px;
+    border-radius: 5px;
+    color: #f8fafc;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+section{
+    display: inline-block;
 }
