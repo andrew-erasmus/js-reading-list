@@ -23,7 +23,3 @@ function displayBooks(){
         console.log(book.info());
     });
 }
-
-// const theHobbit = new Book("The Hobbit", "JRR Tolkein", 1234, true);
-// let outputString = theHobbit.info();
-// console.log(theHobbit.info());
