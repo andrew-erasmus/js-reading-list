@@ -1,5 +1,6 @@
 const readingList = [];
-
+const addBookDialog = document.getElementById('addBookDialog');
+let exitButton = document.getElementById('closeAddModal');
 // Constructor for a new book
 function Book(title, author, pages, read){
     this.title = title;
@@ -13,9 +14,18 @@ function Book(title, author, pages, read){
     };
 }
 
+function displayAddBookModal(){
+    addBookDialog.showModal();
+    exitButton.addEventListener('click', ()=>{
+        addBookDialog.close()
+    });
+}
+
 function addBookToList(title, author, pages, read){
     let bookToAdd = new Book (title, author, pages, read);
     readingList.push(bookToAdd);
+    addBookDialog.showModal();
+
 }
 
 function displayBooks(){

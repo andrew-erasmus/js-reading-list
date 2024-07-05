@@ -9,8 +9,15 @@
 <body>
     <header>
         <h1>Reading List</h1>
-        <button id="add-book" onclick="addBookToList('Test','TEST', 1244, true)">+ Add new book</button>
-    </header>    
+        <button id="add-book" onclick="displayAddBookModal()">+ Add new book</button>
+    </header> 
+    
+    <dialog id="addBookDialog">
+        <a id="closeAddModal">X</a>
+        <form>
+            
+        </form>
+    </dialog>
 </body>
 <script src="./script.js"></script>
 </html>

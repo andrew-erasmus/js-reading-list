@@ -42,3 +42,15 @@ h1{
     font-size: 1rem;
     font-family: Poppins;
 }
+
+dialog{
+    font-family: Poppins;
+    border-radius: 10px;
+    border: solid #0f172a 5px;
+}
+
+a{ 
+    text-decoration: none;
+    cursor: pointer;   
+    
+}
