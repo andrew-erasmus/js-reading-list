@@ -12,7 +12,7 @@ body {
     background-color: #f8fafc;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    padding: 0;
 }
 
 #header {
@@ -22,7 +22,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* position: fixed; */
 }
 
 h1 {
@@ -88,6 +87,7 @@ section {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
+    flex-shrink: 2;
 }
 
 .bookCard {
@@ -127,4 +127,41 @@ section {
 
 svg {
     align-self: center;
+}
+
+#bodyContainer{
+    display: flex;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+#statistics{
+    border: solid #0f172a 5px;
+    width: 15rem;
+    min-width: 15rem;
+    height: 15rem;
+    margin: 10px;
+    flex-shrink: 1;
+    border-radius: 10px;
+}
+
+#statsHeader{
+    display: flex;
+    flex-direction: column;
+    background-color: #0f172a;
+    height: 3rem;
+}
+
+#statsHeader{
+    display: flex;
+    justify-content: center;
+    padding-left: 10px;
+}
+
+h2{
+    color: #f8fafc;
+}
+
+#statsBody {
+    padding-left:5px;
 }

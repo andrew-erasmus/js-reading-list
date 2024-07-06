@@ -1,6 +1,6 @@
 const readingList = [];
 const addBookDialog = document.getElementById('addBookDialog');
-
+let bookCount=0;
 
 let exitButton = document.getElementById('closeAddModal');
 let titleInput = document.getElementById('titleInput');
@@ -11,14 +11,15 @@ let noRadio = document.getElementById('noRadio');
 let submitBookButton = document.getElementById('submitBook');
 
 // Constructor for a new book
-function Book(title, author, pages, read){
+function Book(id, title, author, pages, read){
+    this.id = id;
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
 
     this.info = function(){
-        let output = this.title+ ", "+this.author+ ", "+this.pages+ ", "+this.read+ ".";
+        let output =this.id +", " +this.title+ ", "+this.author+ ", "+this.pages+ ", "+this.read+ ".";
         return output;
     };
 }
@@ -32,6 +33,8 @@ function displayAddBookModal(){
 
 submitBookButton.addEventListener('click', (e) => {
     e.preventDefault();
+    bookCount++;
+    let id = bookCount
     let title = titleInput.value;
     let author = authorInput.value;
     let length = lengthInput.value;
@@ -39,13 +42,13 @@ submitBookButton.addEventListener('click', (e) => {
     if (yesRadio.checked) {
         read = true;
     }
-
-    addBookToList(title, author, length, read);
+    addBookDialog.close();
+    addBookToList(id, title, author, length, read);
     // buildBookCard();
 });
 
-function addBookToList(title, author, pages, read){
-    let bookToAdd = new Book (title, author, pages, read);
+function addBookToList(id, title, author, pages, read){
+    let bookToAdd = new Book (id, title, author, pages, read);
     readingList.push(bookToAdd);
     console.log(bookToAdd.info());
 }

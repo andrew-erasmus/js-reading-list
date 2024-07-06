@@ -13,20 +13,21 @@
         <h1>Reading List</h1>
         <button id="addBook" onclick="displayAddBookModal()">+ Add new book</button>
     </div>
-    <div id="booksContainer">
-        <div class="bookCard">
-            <div class="bookCardHeader">
-                <div class="editBook">
-                    <a class="editBookButton"><img src="./icons/editIcon.svg" height="24px" width="24px" alt="">
-                    </a>
-                </div>
+    <div id="bodyContainer">
+        <div id="booksContainer">
+        
+        </div>
+        <div id="statistics">
+            <div id="statsHeader">
+                <h2>About</h2>
             </div>
-            <p>Title</p>
-            <p>Author</p>
-            <p>Length</p>
-            <p>Read</p>
+            <div id="statsBody">
+                <p>Number of books: 0</p>
+                <p>Number of books read: 0</p>
+            </div>
         </div>
     </div>
+
 
 
     <dialog id="addBookDialog">
