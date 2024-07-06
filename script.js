@@ -41,6 +41,7 @@ submitBookButton.addEventListener('click', (e) => {
     }
 
     addBookToList(title, author, length, read);
+    // buildBookCard();
 });
 
 function addBookToList(title, author, pages, read){
@@ -55,6 +56,45 @@ function displayBooks(){
     });
 }
 
-function buildBookCard(){
+function buildBookCard(title, author, length, read){
+    // let bookCard = document.getElementsByClassName('bookCard');
+    let newBookCard = document.createElement("div");
+    newBookCard.classList.add("bookCard");
+
+    let cardHeader = document.createElement("div");
+    cardHeader.classList.add("bookCardHeader");
+
+    let editBookDiv = document.createElement("div");
+    cardHeader.classList.add("editBook");
+
+    let editButton = document.createElement("a");
+    editButton.classList.add("editBookButton");
+
+    let img = document.createElement("img");
+    img.src = "./icons/editIcon.svg";
+    img.height = "24px";
+    img.width = "24px";
+
+    let titleOutput = document.createElement("p");
+    let authorOutput = document.createElement("p");
+    let lengthOutput = document.createElement("p");
+    let readOutput = document.createElement("p");
+
+    titleOutput.innerHTML=title;
+    authorOutput.innerHTML=author;
+    lengthOutput.innerHTML=length;
+    readOutput.innerHTML=read;
+
+    newBookCard.appendChild(cardHeader);
+    newBookCard.appendChild(titleOutput);
+    newBookCard.appendChild(authorOutput);
+    newBookCard.appendChild(lengthOutput);
+    newBookCard.appendChild(readOutput);
+
+    cardHeader.appendChild(editBookDiv);
+    editBookDiv.appendChild(editButton);
+    editButton.appendChild(img);
     
+
+    document.getElementById('booksContainer').appendChild(newBookCard);
 }
