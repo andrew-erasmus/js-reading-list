@@ -54,3 +54,7 @@ function displayBooks(){
         console.log(book.info());
     });
 }
+
+function buildBookCard(){
+    
+}

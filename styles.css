@@ -12,24 +12,25 @@ body {
     background-color: #f8fafc;
     display: flex;
     flex-direction: column;
+    gap: 20px;
 }
 
-header {
+#header {
     height: 100px;
     width: 100vw;
     background-color: #0f172a;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: fixed;
+    /* position: fixed; */
 }
 
-h1{
+h1 {
     color: #f8fafc;
     margin-left: 2rem;
 }
 
-#addBook{
+#addBook {
     background: #f8fafc;
     border: solid #f8fafc 1px;
     border-radius: 10px;
@@ -38,36 +39,36 @@ h1{
     padding-right: 10px;
     outline: none;
     box-shadow: none;
-    color:#0f172a;
+    color: #0f172a;
     font-size: 1rem;
     font-family: Poppins;
 }
 
-dialog{
+dialog {
     font-family: Poppins;
     border-radius: 10px;
     border: solid #0f172a 5px;
 }
 
-a{ 
+a {
     text-decoration: none;
-    cursor: pointer;   
+    cursor: pointer;
 }
 
-#addBookForm{
+#addBookForm {
     display: flex;
     flex-direction: column;
     gap: 15px;
     padding: 2rem;
 }
 
-input[type="radio"]{
+input[type="radio"] {
     background-color: #0f172a;
     border: #0f172a;
     accent-color: #0f0f0f;
 }
 
-#submitBook{
+#submitBook {
     background: #0f172a;
     border: solid #0f172a 1px;
     border-radius: 5px;
@@ -76,6 +77,50 @@ input[type="radio"]{
     cursor: pointer;
 }
 
-section{
+section {
     display: inline-block;
+}
+
+#booksContainer {
+    padding: 2rem;
+    height: inherit;
+    width: inherit;
+}
+
+.bookCard {
+    border: solid #1e293b 5px;
+    color: #1e293b;
+    font-size: 1.125rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 10px 10px 10px;
+    width: 10rem;
+    height: 15rem;
+}
+
+.bookCard>p {
+    width: fit-content;
+    margin: 0;
+    padding: 10px;
+}
+
+.bookCardHeader {
+    display: flex;
+    width: inherit;
+    height: fit-content;
+    background-color: #1e293b;
+    padding: 10px;
+    padding-top: 5px;
+}
+
+.editBook {
+    margin-left: auto;
+    align-self: center;
+    display: flex;
+}
+
+svg {
+    align-self: center;
 }
