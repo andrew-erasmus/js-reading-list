@@ -85,6 +85,9 @@ section {
     padding: 2rem;
     height: inherit;
     width: inherit;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 .bookCard {
@@ -113,6 +116,7 @@ section {
     background-color: #1e293b;
     padding: 10px;
     padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .editBook {

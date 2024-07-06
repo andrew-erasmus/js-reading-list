@@ -65,15 +65,15 @@ function buildBookCard(title, author, length, read){
     cardHeader.classList.add("bookCardHeader");
 
     let editBookDiv = document.createElement("div");
-    cardHeader.classList.add("editBook");
+    editBookDiv.classList.add("editBook");
 
     let editButton = document.createElement("a");
     editButton.classList.add("editBookButton");
 
     let img = document.createElement("img");
     img.src = "./icons/editIcon.svg";
-    img.height = "24px";
-    img.width = "24px";
+    img.style.height = "24px";
+    img.style.width = "24px";
 
     let titleOutput = document.createElement("p");
     let authorOutput = document.createElement("p");
@@ -95,6 +95,6 @@ function buildBookCard(title, author, length, read){
     editBookDiv.appendChild(editButton);
     editButton.appendChild(img);
     
-
+// fix the way it is added
     document.getElementById('booksContainer').appendChild(newBookCard);
 }
