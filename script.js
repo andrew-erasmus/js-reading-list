@@ -48,7 +48,7 @@ function displayAddBookModal(){
 
 function displayEditBookModal(id){
     editBookDialog.showModal();
-    exitButton.addEventListener('click', ()=>{
+    exitEdit.addEventListener('click', ()=>{
         editBookDialog.close()
     });
 }
@@ -56,7 +56,7 @@ function displayEditBookModal(id){
 submitBookButton.addEventListener('click', (e) => {
     e.preventDefault();
     bookCount++;
-    let id = bookCount
+    let id = bookCount;
     let title = titleInput.value;
     let author = authorInput.value;
     let length = lengthInput.value;
@@ -80,13 +80,25 @@ submitBookButton.addEventListener('click', (e) => {
 function updateListeners(){
     editBookButtons.forEach( book => {
         book.addEventListener('click', (event)=> {
-            console.log(event.target.parentElement.parentElement.id);
             editBook(event.target.parentElement.parentElement.id);
         });
     });
 }
 
 function editBook(id){
+    readingList.forEach(book => {
+        if(book.id == id){
+            editTitle.value = book.title;
+            editAuthor.value = book.author;
+            editLength.value = book.pages;
+
+            if(book.read == true){
+                editYes.checked = true;
+            } else {
+                editNo.checked = true;
+            }
+        }
+    });
     displayEditBookModal();
     submitEditButton.addEventListener('click', (e) => {
         e.preventDefault();
@@ -96,15 +108,11 @@ function editBook(id){
         let read = false;
         if (editYes.checked) {
             read = true;
-            editYes.checked = false;
+            // editYes.checked = false;
         } else {
             read = false;
-            editNo.checked = false;
+            // editNo.checked = false;
         }
-    
-        editTitle.value="";
-        editAuthor.value="";
-        editLength.value="";
     
         readingList.forEach(book => {
             if(book.id == id){
@@ -112,6 +120,7 @@ function editBook(id){
                 book.author = author;
                 book.pages = length;
                 book.read = read;
+                
 
                 let oldCard = document.querySelector('.book'+id);
                 oldCard.remove();
@@ -135,7 +144,6 @@ function displayBooks(){
 }
 
 function buildBookCard(id, title, author, length, read){
-    // let bookCard = document.getElementsByClassName('bookCard');
     let newBookCard = document.createElement("div");
     newBookCard.classList.add("bookCard");
     newBookCard.classList.add("book"+id);
@@ -179,7 +187,6 @@ function buildBookCard(id, title, author, length, read){
     updateStatistics();
     editBookButtons = document.querySelectorAll('.editBookButton');
     updateListeners();
-    
 }
 
 function updateStatistics(){
