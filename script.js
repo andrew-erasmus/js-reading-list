@@ -9,6 +9,9 @@ let lengthInput = document.getElementById('lengthInput');
 let yesRadio = document.getElementById('yesRadio');
 let noRadio = document.getElementById('noRadio');
 let submitBookButton = document.getElementById('submitBook');
+let numBooks = document.getElementById("numBooks");
+let numRead = document.getElementById("numRead");
+
 
 // Constructor for a new book
 function Book(id, title, author, pages, read){
@@ -41,16 +44,24 @@ submitBookButton.addEventListener('click', (e) => {
     let read = false;
     if (yesRadio.checked) {
         read = true;
+        yesRadio.checked = false;
+    } else {
+        read = false;
+        yesRadio.checked = false;
     }
+
+    titleInput.value="";
+    authorInput.value="";
+    lengthInput.value="";
+
     addBookDialog.close();
     addBookToList(id, title, author, length, read);
-    // buildBookCard();
 });
 
 function addBookToList(id, title, author, pages, read){
     let bookToAdd = new Book (id, title, author, pages, read);
     readingList.push(bookToAdd);
-    console.log(bookToAdd.info());
+    buildBookCard(id, title, author, pages, read);
 }
 
 function displayBooks(){
@@ -59,10 +70,11 @@ function displayBooks(){
     });
 }
 
-function buildBookCard(title, author, length, read){
+function buildBookCard(id, title, author, length, read){
     // let bookCard = document.getElementsByClassName('bookCard');
     let newBookCard = document.createElement("div");
     newBookCard.classList.add("bookCard");
+    newBookCard.setAttribute("id",id);
 
     let cardHeader = document.createElement("div");
     cardHeader.classList.add("bookCardHeader");
@@ -83,10 +95,10 @@ function buildBookCard(title, author, length, read){
     let lengthOutput = document.createElement("p");
     let readOutput = document.createElement("p");
 
-    titleOutput.innerHTML=title;
-    authorOutput.innerHTML=author;
-    lengthOutput.innerHTML=length;
-    readOutput.innerHTML=read;
+    titleOutput.innerHTML= 'Title: '+title;
+    authorOutput.innerHTML='Author: '+author;
+    lengthOutput.innerHTML='Length: '+length;
+    readOutput.innerHTML='Read?: '+read;
 
     newBookCard.appendChild(cardHeader);
     newBookCard.appendChild(titleOutput);
@@ -98,6 +110,17 @@ function buildBookCard(title, author, length, read){
     editBookDiv.appendChild(editButton);
     editButton.appendChild(img);
     
-// fix the way it is added
     document.getElementById('booksContainer').appendChild(newBookCard);
+    updateStatistics()
+}
+
+function updateStatistics(){
+    numBooks.innerHTML = "Number of books: " + readingList.length;
+    let readCount = 0;
+    readingList.forEach(e => {
+        if (e.read == true){
+            readCount++;
+        }
+    });
+    numRead.innerHTML = "Number of books read: " + readCount;
 }

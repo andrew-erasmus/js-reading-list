@@ -104,9 +104,13 @@ section {
 }
 
 .bookCard>p {
-    width: fit-content;
+    width:100%;
     margin: 0;
     padding: 10px;
+    text-align:start;
+    color: #0f172a;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .bookCardHeader {
@@ -139,7 +143,7 @@ svg {
     border: solid #0f172a 5px;
     width: 15rem;
     min-width: 15rem;
-    height: 15rem;
+    height: 10rem;
     margin: 10px;
     flex-shrink: 1;
     border-radius: 10px;
@@ -163,5 +167,5 @@ h2{
 }
 
 #statsBody {
-    padding-left:5px;
+    padding-left:10px;
 }
