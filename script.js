@@ -9,8 +9,9 @@ let lengthInput = document.getElementById('lengthInput');
 let yesRadio = document.getElementById('yesRadio');
 let noRadio = document.getElementById('noRadio');
 let submitBookButton = document.getElementById('submitBook');
-let numBooks = document.getElementById("numBooks");
-let numRead = document.getElementById("numRead");
+let numBooks = document.getElementById('numBooks');
+let numRead = document.getElementById('numRead');
+let editBookButtons = document.querySelectorAll('.editBookButton');
 
 
 // Constructor for a new book
@@ -58,6 +59,18 @@ submitBookButton.addEventListener('click', (e) => {
     addBookToList(id, title, author, length, read);
 });
 
+function updateListeners(){
+    editBookButtons.forEach( book => {
+        book.addEventListener('click', (event)=> {
+            console.log(event.target.parentElement.parentElement);
+        });
+    });
+}
+
+function editBook(id){
+    
+}
+
 function addBookToList(id, title, author, pages, read){
     let bookToAdd = new Book (id, title, author, pages, read);
     readingList.push(bookToAdd);
@@ -74,13 +87,14 @@ function buildBookCard(id, title, author, length, read){
     // let bookCard = document.getElementsByClassName('bookCard');
     let newBookCard = document.createElement("div");
     newBookCard.classList.add("bookCard");
-    newBookCard.setAttribute("id",id);
+    newBookCard.classList.add("book"+id);
 
     let cardHeader = document.createElement("div");
     cardHeader.classList.add("bookCardHeader");
 
     let editBookDiv = document.createElement("div");
     editBookDiv.classList.add("editBook");
+    editBookDiv.setAttribute("id",id);
 
     let editButton = document.createElement("a");
     editButton.classList.add("editBookButton");
@@ -111,7 +125,10 @@ function buildBookCard(id, title, author, length, read){
     editButton.appendChild(img);
     
     document.getElementById('booksContainer').appendChild(newBookCard);
-    updateStatistics()
+    updateStatistics();
+    editBookButtons = document.querySelectorAll('.editBookButton');
+    updateListeners();
+    
 }
 
 function updateStatistics(){
