@@ -166,17 +166,24 @@ function buildBookCard(id, title, author, length, read){
     let titleOutput = document.createElement("p");
     let authorOutput = document.createElement("p");
     let lengthOutput = document.createElement("p");
-    let readOutput = document.createElement("p");
+    let readLabel = document.createElement("label");
+    readLabel.setAttribute('for', 'read');
+    readLabel.textContent = "Read";
+
+    let readOutput = document.createElement("input");
+    readOutput.setAttribute('type','checkbox');
+    readOutput.setAttribute('id','read');
 
     titleOutput.innerHTML= 'Title: '+title;
     authorOutput.innerHTML='Author: '+author;
     lengthOutput.innerHTML='Length: '+length;
-    readOutput.innerHTML='Read?: '+read;
+    readOutput.checked = read;
 
     newBookCard.appendChild(cardHeader);
     newBookCard.appendChild(titleOutput);
     newBookCard.appendChild(authorOutput);
     newBookCard.appendChild(lengthOutput);
+    newBookCard.appendChild(readLabel);
     newBookCard.appendChild(readOutput);
 
     cardHeader.appendChild(editBookDiv);
