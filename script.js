@@ -1,5 +1,6 @@
 const readingList = [];
 const addBookDialog = document.getElementById('addBookDialog');
+const editBookDialog = document.getElementById('editBookDialog');
 let bookCount=0;
 
 let exitButton = document.getElementById('closeAddModal');
@@ -9,6 +10,16 @@ let lengthInput = document.getElementById('lengthInput');
 let yesRadio = document.getElementById('yesRadio');
 let noRadio = document.getElementById('noRadio');
 let submitBookButton = document.getElementById('submitBook');
+
+let exitEdit = document.getElementById('closeEditModal');
+let editTitle = document.getElementById('editTitle');
+let editAuthor = document.getElementById('editAuthor');
+let editLength = document.getElementById('editLength');
+let editYes = document.getElementById('editYes');
+let editNo = document.getElementById('editNo');
+let submitEditButton = document.getElementById('submitEdit');
+
+
 let numBooks = document.getElementById('numBooks');
 let numRead = document.getElementById('numRead');
 let editBookButtons = document.querySelectorAll('.editBookButton');
@@ -35,6 +46,13 @@ function displayAddBookModal(){
     });
 }
 
+function displayEditBookModal(id){
+    editBookDialog.showModal();
+    exitButton.addEventListener('click', ()=>{
+        editBookDialog.close()
+    });
+}
+
 submitBookButton.addEventListener('click', (e) => {
     e.preventDefault();
     bookCount++;
@@ -48,7 +66,7 @@ submitBookButton.addEventListener('click', (e) => {
         yesRadio.checked = false;
     } else {
         read = false;
-        yesRadio.checked = false;
+        noRadio.checked = false;
     }
 
     titleInput.value="";
@@ -62,13 +80,46 @@ submitBookButton.addEventListener('click', (e) => {
 function updateListeners(){
     editBookButtons.forEach( book => {
         book.addEventListener('click', (event)=> {
-            console.log(event.target.parentElement.parentElement);
+            console.log(event.target.parentElement.parentElement.id);
+            editBook(event.target.parentElement.parentElement.id);
         });
     });
 }
 
 function editBook(id){
+    displayEditBookModal();
+    submitEditButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        let title = editTitle.value;
+        let author = editAuthor.value;
+        let length = editLength.value;
+        let read = false;
+        if (editYes.checked) {
+            read = true;
+            editYes.checked = false;
+        } else {
+            read = false;
+            editNo.checked = false;
+        }
     
+        editTitle.value="";
+        editAuthor.value="";
+        editLength.value="";
+    
+        readingList.forEach(book => {
+            if(book.id == id){
+                book.title = title;
+                book.author = author;
+                book.pages = length;
+                book.read = read;
+
+                let oldCard = document.querySelector('.book'+id);
+                oldCard.remove();
+                buildBookCard(id, title, author, length, read);
+            }
+        }); 
+        editBookDialog.close();
+    });
 }
 
 function addBookToList(id, title, author, pages, read){

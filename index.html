@@ -66,6 +66,42 @@
         </form>
     </dialog>
 
+    <dialog id="editBookDialog">
+        <a id="closeEditModal">X</a>
+        <form id="editBookForm">
+
+            <section>
+                <label for="titleInput">Title:</label>
+                <br>
+                <input type="text" name="title" id="editTitle">
+            </section>
+
+            <section>
+                <label for="authorInput">Author:</label>
+                <br>
+                <input type="text" name="author" id="editAuthor">
+            </section>
+
+            <section>
+                <label for="lengthInput">Length:</label>
+                <br>
+                <input type="text" name="title" id="editLength">
+            </section>
+
+            <section>
+                <label for="radioCheckbox">Read?:</label>
+                <label>
+                    <input id="editYes" type="radio" name="readChoice" value="yes"> Yes
+                </label>
+                <label>
+                    <input id="editNo" type="radio" name="readChoice" value="no"> No
+                </label>
+            </section>
+
+            <button id="submitEdit">Submit Edit</button>
+        </form>
+    </dialog>
+
 </body>
 <script src="./script.js"></script>
 

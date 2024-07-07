@@ -54,7 +54,7 @@ a {
     cursor: pointer;
 }
 
-#addBookForm {
+#addBookForm, #editBookForm {
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -67,7 +67,7 @@ input[type="radio"] {
     accent-color: #0f0f0f;
 }
 
-#submitBook {
+#submitBook, #submitEdit {
     background: #0f172a;
     border: solid #0f172a 1px;
     border-radius: 5px;
