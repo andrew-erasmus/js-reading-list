@@ -41,12 +41,33 @@ h1 {
     color: #0f172a;
     font-size: 1rem;
     font-family: Poppins;
+    transition: transform .4s;
+}
+
+#addBook:hover{
+    transform: scale(1.1);
 }
 
 dialog {
     font-family: Poppins;
     border-radius: 10px;
     border: solid #0f172a 5px;
+
+}
+
+dialog[open] {
+    animation: flipFadeIn 1s forwards;
+}
+
+@keyframes flipFadeIn {
+    0% {
+        opacity: 0;
+        transform: rotateY(-90deg);
+    }
+    100% {
+        opacity: 1;
+        transform: rotateY(0deg);
+    }
 }
 
 a {
@@ -101,6 +122,11 @@ section {
     padding: 0 10px 10px 10px;
     width: 10rem;
     height: 15rem;
+    transition: transform .4s;
+}
+
+.bookCard:hover{
+    transform: scale(1.1);
 }
 
 .bookCard>p {
