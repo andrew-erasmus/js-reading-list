@@ -39,6 +39,10 @@ function Book(id, title, author, pages, read){
     };
 }
 
+Book.prototype.changeRead = function(){
+
+}
+
 function displayAddBookModal(){
     addBookDialog.showModal();
     exitButton.addEventListener('click', ()=>{
@@ -168,11 +172,21 @@ function buildBookCard(id, title, author, length, read){
     let lengthOutput = document.createElement("p");
     let readLabel = document.createElement("label");
     readLabel.setAttribute('for', 'read');
-    readLabel.textContent = "Read";
+    readLabel.textContent = "- Read -";
 
     let readOutput = document.createElement("input");
     readOutput.setAttribute('type','checkbox');
     readOutput.setAttribute('id','read');
+    readOutput.classList.add(id);
+
+    readOutput.addEventListener('change', (event) => {
+        readingList.forEach(book => {
+            if (event.target.classList.contains(book.id)){
+               book.read = event.target.checked;
+               updateStatistics();
+            }
+        });
+    });
 
     titleOutput.innerHTML= 'Title: '+title;
     authorOutput.innerHTML='Author: '+author;
